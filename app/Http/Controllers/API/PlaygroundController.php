@@ -23,7 +23,7 @@ class PlaygroundController extends Controller
             'price_per_hour' => 'required|numeric',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'open_time' => 'required|date_format:H:i',
-            'close_time' => ['required', 'date_format:H:i', new TimeAfter('open_time', 'وقت الفتح')],
+            'close_time' => 'required|date_format:H:i',
         ]);
     
         $images = [];
