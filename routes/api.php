@@ -53,6 +53,8 @@ Broadcast::channel('reservations', function ($user) {
     Route::get('user-reservations', [ReservationController::class,'userReservations']);
     Route::get('financial-reports', [FinancialReportController::class, 'index']);
 
+
+    Route::get('owner-reservations', [ReservationController::class, 'ownerReservations']);
         // Custom routes for confirming and canceling reservations
     Route::patch('reservations/{reservation}/confirm', [ReservationController::class, 'confirm']);
     Route::patch('reservations/{reservation}/cancel', [ReservationController::class, 'cancel']);

@@ -307,4 +307,15 @@ class ReservationController extends Controller
                 abort(403, 'Unauthorized action.');
             }
         }
+
+
+        public function ownerReservations()
+        {
+            $ownerId = Auth::id();
+            $reservations = Reservation::whereHas('playground', function ($query) use ($ownerId) {
+                $query->where('owner_id', $ownerId);
+            })->with(['user', 'playground'])->get();
+    
+            return response()->json($reservations);
+        }
 }
